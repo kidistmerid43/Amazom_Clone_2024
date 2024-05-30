@@ -6,12 +6,12 @@
     align-items: center;
 }
 .login img{
-    margin: auto;
+    margin: 30px auto;
     object-fit: contain;
     width: 100px;
 }
 .login_container{
-    width: 300px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -40,7 +40,6 @@
     border: none;
     border: 1px solid gray;
     border-radius: 3px;
-    box-sizing: border-box;
 }
 .login_container form input:focus {
     outline:2px solid skyblue
@@ -57,9 +56,6 @@
 .login_signInButton:hover{
     background-color: var(--primary-shade);
 }
-
-
-
 .login_container p {
    padding: 10px 0px;
    font-size: 14px;
