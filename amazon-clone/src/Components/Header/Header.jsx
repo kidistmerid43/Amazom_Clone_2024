@@ -5,10 +5,16 @@ import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
+import { DataContext } from "../DataProvider/DataProvider";
 
 function Header() {
+	const { state, dispatch } = React.useContext(DataContext); // Use useContext correctly
+	const { user, basket } = state; // Destructure state to get user and basket
+
+	const totalItem = basket?.reduce((amount, item) => item.amount + amount, 0);
+
 	return (
-		<>
+		<section className={classes.fixed}>
 			<section>
 				<div className={classes.header_container}>
 					<div className={classes.logo_container}>
@@ -51,8 +57,14 @@ function Header() {
 						</Link>
 
 						{/* Account and Lists */}
-						<Link to="/signin">
-							<p>Sign In</p>
+						<Link to={!user && "/Auth"}>
+							<div>
+								{user ? (
+									<p>Hello {user?.email?.split("@")[0]}</p>
+								) : (
+									<p>Hello, Sign In</p>
+								)}
+							</div>
 							<span>Account and Lists</span>
 						</Link>
 
@@ -64,14 +76,14 @@ function Header() {
 
 						{/* Cart */}
 						<Link to="/cart" className={classes.cart}>
-							<BiCart size={35} />
-							<span>0</span>
+							<BiCart size={48} />
+							<span>{totalItem}</span>
 						</Link>
 					</div>
 				</div>
 			</section>
 			<LowerHeader />
-		</>
+		</section>
 	);
 }
 

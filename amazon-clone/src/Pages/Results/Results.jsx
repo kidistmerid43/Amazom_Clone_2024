@@ -11,16 +11,14 @@ function Results() {
 	const { categoryName } = useParams();
 
 	useEffect(() => {
-		axios
-			.get(`${productUrl}/products/category/${categoryName}`)
+		axios.get(`${productUrl}/products/category/${categoryName}`)
 			.then((res) => {
 				setResults(res.data);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-	}, [categoryName]); // Added categoryName as dependency
-
+	}, [categoryName]); 
 	return (
 		<Layout>
 			{" "}
@@ -30,10 +28,13 @@ function Results() {
 				<p style={{ padding: "30px" }}>Category / {categoryName}</p>
 				<hr />
 				<div className={classes.products_container}>
-					{" "}
-					{/* Corrected classname to use 'classes' */}
 					{results?.map((product) => (
-						<ProductCard key={product.id} product={product} />
+						<ProductCard 
+						key={product.id} 
+						product={product} 
+						renderDesc={false}
+						renderAdd={true}
+						/>
 					))}
 				</div>
 			</section>

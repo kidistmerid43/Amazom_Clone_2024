@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
 }
+.fixed {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+}
 .header_container {
     background-color: #1a1a1a;
     display: flex;
@@ -61,6 +67,7 @@ padding: 5px;
     background: #febd69;
     color: #1a1a1a;
 }
+
 .search svg:hover{
     background-color: #d49644;
 }
@@ -143,3 +150,5 @@ padding: 5px;
         display: none;
     }
 }
+
+

@@ -15,9 +15,3 @@ function App() {
 
 export default App;
 
-
-	// <div className="App">
-	// 	<Routing>
-	// 		<Header />
-	// 	</Routing>
-	// </div>

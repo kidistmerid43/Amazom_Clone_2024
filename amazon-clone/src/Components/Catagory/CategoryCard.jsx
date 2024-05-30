@@ -7,16 +7,15 @@ function CategoryCard({ data })
  {console.log(data)
 	return (
 		<div className={classes.category}>
-			<Link
-				to={`/category/${data.name}`}
-				href={data.link}
+			<Link to={`/category/${data.name}`}
+				href={data?.link}
 				target="_blank"
 				rel="noopener noreferrer"
 			>
 				<span>
-					<h2>{data.title}</h2>
+					<h2>{data?.title}</h2>
 				</span>
-				<img src={data.imgLink} alt={data.title} />
+				<img src={data?.imgLink} alt={data.title} />
 				<p className={classes.shopNow}>Shop now</p>
 			</Link>
 		</div>
